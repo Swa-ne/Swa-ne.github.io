@@ -1,19 +1,18 @@
-// import { useEffect, useState } from 'react';
 import '../assets/scss/nav.scss';
-import DarkMode from '../components/darkMode/DarkMode';
+import NavBarMenu from '../components/navbar/navBarMenu';
+import NavBarPhone from '../components/navbar/navBarPhone';
+import ThemeModeSwitch from '../components/navbar/themeModeSwitch/themeModeSwitch';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const NavBar: React.FC = () => {
-    // const [darkMode, setDarkMode] = useState();
-    // useEffect(() => {}, [darkMode]);
     return (
-        <nav className='w-screen p-5 bg-transparent flex justify-around'>
-            <h1 className='font-black text-xl'>Swane</h1>
-            <ul className='w-1/2 flex justify-around'>
-                <li>Project</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-            <DarkMode />
+        <nav className='w-full p-5 bg-transparent flex justify-between items-center'>
+            <h1 className='font-black text-2xl'>Swane</h1>
+            <div className='flex w-1/5 ml:w-4/5 md:w-2/5 items-center justify-around'>
+                <NavBarMenu />
+                <ThemeModeSwitch />
+                <NavBarPhone />
+            </div>
         </nav>
     );
 };

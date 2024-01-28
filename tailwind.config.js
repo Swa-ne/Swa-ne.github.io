@@ -10,6 +10,9 @@ export default {
                 'secondary-color': 'var(--secondary-color)',
                 'accent-color': 'var(--accent-color)',
             },
+            screens: {
+                'ml': '425px',
+            },
         },
     },
     plugins: [],

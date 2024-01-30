@@ -1,6 +1,7 @@
 nav {
     position: fixed;
     background-color: var(--background-color);
+    z-index: 10000;
 
     // NAV BAR HAMBURGER
     .hamburger-menu-container {

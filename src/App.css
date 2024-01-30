@@ -23,6 +23,7 @@ html body #root {
   overflow-y: hidden;
 }
 html body #root main {
+  position: relative;
   margin-top: 4em;
 }
 html body #root main [class$=-container] {

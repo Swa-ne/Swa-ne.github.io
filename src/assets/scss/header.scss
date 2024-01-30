@@ -1,6 +1,11 @@
 @import './variable';
 header.header-holder {
+    width: 100%;
     height: calc(100vh - 4em);
+    position: fixed;
+    z-index: 1;
+    top: 4em;
+    left: 0;
 
     .title-name-header {
         margin: 0 0 0.5rem 0;

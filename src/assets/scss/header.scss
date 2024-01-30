@@ -1,9 +1,22 @@
-header {
+@import './variable';
+header.header-holder {
     height: calc(100vh - 4em);
 
+    .title-name-header {
+        margin: 0 0 0.5rem 0;
+        @media (min-width: $ml) {
+            margin: 0 0 0.75rem 0;
+        }
+    }
+    .header-button-holder {
+        margin-top: 0.5rem;
+        @media (min-width: $md) {
+            margin-top: 2rem;
+        }
+    }
     .profile-image-holder {
         width: 100%;
-        height: 25em;
+        padding-top: 100%;
         position: relative;
         display: flex;
         justify-content: center;

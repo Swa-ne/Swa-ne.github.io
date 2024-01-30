@@ -11,6 +11,7 @@
         --primary-color: #31d3b4;
         --secondary-color: #84a8d2;
         --accent-color: #7dc0b5;
+        --profile-url: url('./src/assets/image/profile.jpg');
     }
     :root[data-theme='dark'] {
         --text-color: #edf3f2;
@@ -19,5 +20,6 @@
         --primary-color: #b0c8c4;
         --secondary-color: #2d517b;
         --accent-color: #36e9cb;
+        --profile-url: url('./src/assets/image/profile-dark.jpg');
     }
 }

@@ -9,6 +9,7 @@ const NavBar: React.FC = () => {
         <nav className='w-full fixed top-0 left-0 p-3 flex justify-between items-center'>
             <h1 className='font-black text-2xl cursor-default'>Swane</h1>
             <div className='flex w-1/12 ml:w-4/5 md:w-1/2 items-center justify-around'>
+                {/* TODO: update nav links on scroll*/}
                 <NavBarMenu />
                 <ThemeModeSwitch />
                 <NavBarPhone />

@@ -6,6 +6,7 @@
 @layer base {
     :root {
         --text-color: #0c1211;
+        --text-reverse-color: #edf3f2;
         --background-color: #e8e8e8;
         --primary-color: #31d3b4;
         --secondary-color: #84a8d2;
@@ -13,22 +14,10 @@
     }
     :root[data-theme='dark'] {
         --text-color: #edf3f2;
+        --text-reverse-color: #0c1211;
         --background-color: #090b0b;
         --primary-color: #b0c8c4;
         --secondary-color: #2d517b;
         --accent-color: #36e9cb;
     }
-}
-
-* {
-    margin: 0;
-    border: 0;
-    padding: 0;
-}
-body {
-    font-family: 'Roboto Mono', monospace;
-    overflow-x: hidden;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    transition: all 1s ease;
 }

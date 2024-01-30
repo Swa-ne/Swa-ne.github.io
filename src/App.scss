@@ -1,1 +1,27 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
+body {
+    font-family: 'Roboto Mono', monospace;
+    overflow-x: hidden;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: all 1s ease;
+    min-height: 100vh;
+    * {
+        margin: 0;
+        border: 0;
+        padding: 0;
+    }
+    #root {
+        height: auto;
+        user-select: none;
+        overflow-y: hidden;
+        main {
+            margin-top: 4em;
+            [class$='-container'],
+            header {
+                min-height: 100vh;
+            }
+        }
+    }
+}

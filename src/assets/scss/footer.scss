@@ -1,0 +1,28 @@
+@import './variable';
+.footer-container {
+    background-color: var(--secondary-color);
+    text-align: center;
+    footer {
+        margin: 0 auto;
+        width: 100%;
+        @media (min-width: $lg) {
+            width: 70%;
+        }
+        .socials {
+            margin: 1em 0;
+            display: flex;
+            justify-content: center;
+            a {
+                display: block;
+                width: 50px;
+                @media (min-width: $md) {
+                    width: 40px;
+                }
+                img {
+                    margin: 0 auto;
+                    width: 80%;
+                }
+            }
+        }
+    }
+}

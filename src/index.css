@@ -7,10 +7,11 @@
     :root {
         --text-color: #0c1211;
         --text-reverse-color: #edf3f2;
-        --background-color: #e8e8e8;
-        --primary-color: #31d3b4;
-        --secondary-color: #84a8d2;
-        --accent-color: #7dc0b5;
+        --background-color: #f0f0f0;
+        --primary-color: #007acc;
+        --secondary-color: #64a3d8;
+        --tertiary-color: #ffc04d;
+        --accent-color: #4daa9b;
         --profile-url: url('./src/assets/image/profile.jpg');
     }
     :root[data-theme='dark'] {
@@ -19,6 +20,7 @@
         --background-color: #090b0b;
         --primary-color: #b0c8c4;
         --secondary-color: #2d517b;
+        --tertiary-color: #e64a19;
         --accent-color: #36e9cb;
         --profile-url: url('./src/assets/image/profile-dark.jpg');
     }

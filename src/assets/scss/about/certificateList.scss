@@ -1,6 +1,20 @@
-.certificate-list {
-    width: 350px;
-    height: 350px;
-    padding: 1em;
-    background-color: var(--accent-color);
+.certificates-holder {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 10px;
+    // align-items: center;
+    justify-items: center;
+    margin: 0 auto;
+    .certificate-list {
+        text-align: center;
+        width: 350px;
+        height: 350px;
+        padding: 1em;
+        background-color: var(--primary-color);
+        color: var(--text-reverse-color);
+        border-radius: 5px;
+        p {
+            margin-top: 1em;
+        }
+    }
 }

@@ -7,21 +7,7 @@ $menu-link-active-colors: var(--primary-color), var(--secondary-color), var(--ac
     grid-gap: 20px;
     place-items: center;
 }
-.certificates-holder {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 10px;
-    // align-items: center;
-    justify-items: center;
-    margin: 0 auto;
-    .certificate-list {
-        text-align: center;
-        color: var(--text-color);
-        p {
-            margin-top: 1em;
-        }
-    }
-}
+
 .menu-hover-fill {
     li {
         position: relative;

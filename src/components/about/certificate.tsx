@@ -8,16 +8,7 @@ interface myCertificateListProps {
     certificateImage: string;
 }
 const Certificate = () => {
-    const myCertificate: Array<myCertificateListProps> = [
-        { certificateName: "CS50's Introduction to Computer Science", yearRecieved: '2023', certificateImage: CS50 },
-        { certificateName: "CS50's Introduction to Computer Science", yearRecieved: '2023', certificateImage: CS50 },
-        { certificateName: "CS50's Introduction to Computer Science", yearRecieved: '2023', certificateImage: CS50 },
-        { certificateName: "CS50's Introduction to Computer Science", yearRecieved: '2023', certificateImage: CS50 },
-        { certificateName: "CS50's Introduction to Computer Science", yearRecieved: '2023', certificateImage: CS50 },
-        { certificateName: "CS50's Introduction to Computer Science", yearRecieved: '2023', certificateImage: CS50 },
-        { certificateName: "CS50's Introduction to Computer Science", yearRecieved: '2023', certificateImage: CS50 },
-        { certificateName: "CS50's Introduction to Computer Science", yearRecieved: '2023', certificateImage: CS50 },
-    ];
+    const myCertificate: Array<myCertificateListProps> = [{ certificateName: "CS50's Introduction to Computer Science", yearRecieved: '2023', certificateImage: CS50 }];
     return (
         <div className='w-full h-full flex overflow-y-auto'>
             {/* TODO: change scroll */}

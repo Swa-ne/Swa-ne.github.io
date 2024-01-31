@@ -2,13 +2,13 @@ import Profile2 from '../../assets/image/profile2.png';
 const AboutMain = () => {
     return (
         <>
-            <div className='h-fit md:h-screen'>
+            <div className='h-fit md:min-h-screen'>
                 <h1 className='text-center text-5xl md:text-7xl'>About Me</h1>
                 <div className='flex flex-col md:flex-row items-center justify-center md:justify-around h-5/6'>
                     <div className='w-full flex items-center justify-center md:w-2/5'>
                         <img src={Profile2} alt='Profile' />
                     </div>
-                    <div className='w-full md:w-3/5 mt-5 md:mt-0'>
+                    <div className='w-full md:w-3/5 marginTop-5 md:mt-0'>
                         <h3 className='text-xl text-center md:text-left md:text-3xl'>Full Stack Developer</h3>
                         <h6 className='font-light text-center md:text-left'>📍Pangasinan, Philippines</h6>
                         <div className='text-justify about-description font-normal'>

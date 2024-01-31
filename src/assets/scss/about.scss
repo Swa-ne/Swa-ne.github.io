@@ -1,6 +1,13 @@
 .about-container {
     position: relative;
     background-color: var(--text-color);
-    z-index: 10;
+    color: var(--text-reverse-color);
     margin-top: calc(100vh);
+    min-height: 180vh;
+
+    .about-description {
+        p {
+            margin-top: 1.25em;
+        }
+    }
 }

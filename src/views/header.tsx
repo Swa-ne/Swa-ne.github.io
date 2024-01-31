@@ -3,6 +3,7 @@ import '../assets/scss/header.scss';
 
 const Header: React.FC = () => {
     return (
+        // TODO: make it parallax scroll
         <header className='header-holder flex flex-col-reverse justify-around px-8 py-4 ml:py-4 md:flex-row md:justify-around md:items-center' id='home'>
             <div className='w-full h-1/2 md:h-3/5 md:w-6/12'>
                 <span className='text-xl ml:text-3xl/10 md:text-4xl xl:text-5xl font-medium'>

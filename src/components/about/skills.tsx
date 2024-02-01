@@ -13,8 +13,8 @@ const Skills = () => {
     };
 
     return (
-        <div className='min-h-screen marginTop-5 md:m-0'>
-            <h1 className='text-center mb-6'>Skills & Qualifications</h1>
+        <div className='h-screen marginTop-5 2xl:m-0'>
+            <h1 className='text-center mb-6 text-2xl md:text-3xl'>Skills & Qualifications</h1>
             <div className='flex flex-col md:flex-row md:justify-around h-5/6'>
                 <div className='w-full md:w-3/12'>
                     <ul className='skill-qualification-list menu-hover-fill flex flex-col items-center md:items-start leading-none text-lg md:text-2xl uppercase space-y-4'>

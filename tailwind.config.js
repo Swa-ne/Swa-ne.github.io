@@ -9,6 +9,7 @@ export default {
                 'background-color': 'var(--background-color)',
                 'primary-color': 'var(--primary-color)',
                 'secondary-color': 'var(--secondary-color)',
+                'tertiary-color': 'var(--tertiary-color)',
                 'accent-color': 'var(--accent-color)',
             },
             screens: {

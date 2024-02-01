@@ -1,5 +1,12 @@
 .contact-container {
-    position: relative;
-    background-color: var(--background-color);
+    background-color: var(--secondary-color);
     height: 100vh;
+    position: fixed;
+    width: 100%;
+    top: 4em;
+    left: 0;
+}
+
+.try {
+    height: calc(200vh);
 }

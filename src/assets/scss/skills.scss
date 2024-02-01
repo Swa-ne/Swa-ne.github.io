@@ -1,7 +1,8 @@
 @import './variable';
 $menu-link-active-colors: var(--primary-color), var(--secondary-color), var(--accent-color);
 .tech-stack-holder {
-    // height: 90%;
+    height: 90%;
+    overflow-y: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-gap: 20px;

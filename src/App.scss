@@ -32,3 +32,32 @@ html {
         }
     }
 }
+
+.z-above {
+    z-index: 20;
+}
+
+.z-below {
+    z-index: -100;
+}
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: var(--accent-color) var(--background-color);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    border: 0px solid #9f6060;
+}

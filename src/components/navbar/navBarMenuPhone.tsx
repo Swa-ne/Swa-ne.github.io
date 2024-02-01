@@ -1,5 +1,6 @@
-import { Ref, useState } from 'react';
+import { Ref } from 'react';
 import { Link } from 'react-scroll';
+import UseLinkContext from '../../context/contextHook';
 
 interface NavBarMenuPhoneProps {
     menuPressed: boolean;
@@ -7,7 +8,7 @@ interface NavBarMenuPhoneProps {
 }
 
 const NavBarMenuPhone: React.FC<NavBarMenuPhoneProps> = ({ menuPressed, menuRef }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
+    const { activeIndex, setActiveIndex } = UseLinkContext();
 
     const handleLinkChange = (index: number) => {
         setActiveIndex(index);

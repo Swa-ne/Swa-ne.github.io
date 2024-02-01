@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import { Link } from 'react-scroll';
+import UseLinkContext from '../../context/contextHook';
 
 const NavBarMenu: React.FC = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
+    const { activeIndex, setActiveIndex } = UseLinkContext();
 
     const handleLinkChange = (index: number) => {
         setActiveIndex(index);

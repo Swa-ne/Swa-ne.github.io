@@ -1,5 +1,5 @@
 import '../assets/scss/project.scss';
-import { projectData } from '../util/const';
+import { projectData } from '../utils/const';
 import ProjectList from '../components/project/projectList';
 
 const Project: React.FC = () => {

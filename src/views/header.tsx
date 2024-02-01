@@ -3,6 +3,10 @@ import ResumePDF from '../assets/Resume.pdf';
 import '../assets/scss/header.scss';
 import { Link } from 'react-scroll';
 import ActiveIndexContext from '../utils/handleLinkChange';
+import { useEffect, useState } from 'react';
+
+import Profile from '../assets/image/profile.jpg';
+import ProfileDark from '../assets/image/profile-dark.jpg';
 
 interface HeaderProps {
     pastProject: boolean;
@@ -12,6 +16,17 @@ const Header: React.FC<HeaderProps> = ({ pastProject }) => {
     const handleLinkChange = (index: number) => {
         setActiveIndex(index);
     };
+
+    const [profileImage, setProfileImage] = useState(Profile);
+
+    useEffect(() => {
+        const htmlElement = document.querySelector('html');
+
+        if (htmlElement && htmlElement.hasAttribute('data-theme')) {
+            const themeAttributeValue = htmlElement.getAttribute('data-theme');
+            setProfileImage(themeAttributeValue === 'dark' ? ProfileDark : Profile);
+        }
+    }, []);
     return (
         // TODO: make it parallax scroll
         // implement this https://www.youtube.com/watch?v=z1wZp4jV4cQ&pp=ygUccmVhY3QganMgc2hvdyBpbWFnZSBvbiBob3Zlcg%3D%3D
@@ -36,7 +51,7 @@ const Header: React.FC<HeaderProps> = ({ pastProject }) => {
                 </div>
             </div>
             <div className='w-10/12 mx-auto ml:w-1/2 md:w-4/12'>
-                <div className='profile-image-holder'></div>
+                <div className='profile-image-holder' style={{ backgroundImage: `url(${profileImage})` }}></div>
             </div>
         </header>
     );

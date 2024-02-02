@@ -41,7 +41,6 @@ const MainSkills = () => {
     ];
     return (
         <div className='w-full h-full flex overflow-y-auto'>
-            {/* TODO: change scroll */}
             <div className='tech-stack-holder w-11/12'>
                 {myTechStack.map((data, idx) => (
                     <TechCard key={idx} icon={data.icon} name={data.name} link={data.link} />

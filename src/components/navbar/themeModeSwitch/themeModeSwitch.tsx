@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import { ThemeContext } from '../../../utils/handleLinkChange';
 
 const ThemeModeSwitch: React.FC = () => {
     const [darkMode, setDarkMode] = useState(false);
-
+    const { setTheme } = ThemeContext();
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : '');
+        setTheme(darkMode ? 'dark' : '');
     }, [darkMode]);
 
     return (

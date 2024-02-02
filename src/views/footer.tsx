@@ -7,7 +7,6 @@ const Footer: React.FC = () => {
             <footer>
                 <div className='md:flex md:justify-between md:items-center'>
                     <p>Crafted with ☕ and 💻 by Stephen Paul Bautista</p>
-                    {/* TODO: change icon colors */}
                     <Socials />
                 </div>
                 <hr className='w-full h-1 bg-text-color mx-auto my-4' />

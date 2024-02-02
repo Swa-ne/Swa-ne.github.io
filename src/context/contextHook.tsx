@@ -3,6 +3,8 @@ import React, { createContext, useContext } from 'react';
 export interface ContextData {
     activeIndex: number;
     setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
+    theme: string;
+    setTheme: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const Context = createContext<ContextData | undefined>(undefined);

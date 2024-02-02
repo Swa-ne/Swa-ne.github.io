@@ -1,8 +1,12 @@
 import useLinkContext from '../context/contextHook';
-const ActiveIndexContext = () => {
+export const ActiveIndexContext = () => {
     const { activeIndex, setActiveIndex } = useLinkContext();
 
     return { activeIndex, setActiveIndex };
 };
 
-export default ActiveIndexContext;
+export const ThemeContext = () => {
+    const { theme, setTheme } = useLinkContext();
+
+    return { theme, setTheme };
+};

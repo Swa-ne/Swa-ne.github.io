@@ -2,7 +2,7 @@ import { ReactTyped } from 'react-typed';
 import ResumePDF from '../assets/Resume.pdf';
 import '../assets/scss/header.scss';
 import { Link } from 'react-scroll';
-import ActiveIndexContext from '../utils/handleLinkChange';
+import { ActiveIndexContext, ThemeContext } from '../utils/handleLinkChange';
 import { useEffect, useState } from 'react';
 
 import Profile from '../assets/image/profile.jpg';
@@ -13,6 +13,7 @@ interface HeaderProps {
 }
 const Header: React.FC<HeaderProps> = ({ pastProject }) => {
     const { setActiveIndex } = ActiveIndexContext();
+    const { theme } = ThemeContext();
     const handleLinkChange = (index: number) => {
         setActiveIndex(index);
     };
@@ -20,13 +21,8 @@ const Header: React.FC<HeaderProps> = ({ pastProject }) => {
     const [profileImage, setProfileImage] = useState(Profile);
 
     useEffect(() => {
-        const htmlElement = document.querySelector('html');
-
-        if (htmlElement && htmlElement.hasAttribute('data-theme')) {
-            const themeAttributeValue = htmlElement.getAttribute('data-theme');
-            setProfileImage(themeAttributeValue === 'dark' ? ProfileDark : Profile);
-        }
-    }, []);
+        setProfileImage(theme === 'dark' ? ProfileDark : Profile);
+    }, [theme]);
     return (
         // TODO: make it parallax scroll
         // implement this https://www.youtube.com/watch?v=z1wZp4jV4cQ&pp=ygUccmVhY3QganMgc2hvdyBpbWFnZSBvbiBob3Zlcg%3D%3D
@@ -45,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ pastProject }) => {
                     <a href={ResumePDF} download='resume.pdf'>
                         <button className='download-button w-full'>Download CV</button>
                     </a>
-                    <Link to='contact' className='link' spy={true} smooth={true} offset={-70} duration={500} onClick={() => handleLinkChange(2)}>
+                    <Link to='contact' className='link' spy={true} smooth={true} offset={-70} duration={500} onClick={() => handleLinkChange(3)}>
                         <button className='hire-button w-full'>Hire Me Now</button>
                     </Link>
                 </div>

@@ -49,7 +49,6 @@ function App() {
         <>
             <NavBar />
             <main>
-                {/* TODO: fix bug */}
                 <Header pastProject={isPastProject} />
                 <About />
                 <div className='try'>

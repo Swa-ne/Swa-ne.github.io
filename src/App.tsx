@@ -18,18 +18,23 @@ function App() {
             const projectSection = document.getElementById('project');
             const contactSection = document.getElementById('contact');
             const scrollPosition = window.scrollY || window.pageYOffset;
-            if (headerSection && scrollPosition < (aboutSection?.offsetTop ?? 0)) {
+            const windowInnerHeight = window.innerHeight;
+
+            const aboutSectionTop = aboutSection?.offsetTop !== undefined ? aboutSection.offsetTop - 100 + windowInnerHeight : 0;
+            const projectSectionTop = projectSection?.offsetTop !== undefined ? projectSection.offsetTop - 100 + 4 * 10 + windowInnerHeight : 0;
+            const contactSectionTop = projectSectionTop + window.innerHeight;
+            if (scrollPosition < aboutSectionTop) {
                 setActiveIndex(0);
-            } else if (aboutSection && projectSection && scrollPosition < projectSection.offsetTop) {
+            } else if (aboutSection && projectSection && scrollPosition < projectSectionTop) {
                 setActiveIndex(1);
-            } else if (projectSection && contactSection && scrollPosition < contactSection.offsetTop) {
+            } else if (projectSection && contactSection && scrollPosition < contactSectionTop) {
                 setActiveIndex(2);
             } else if (contactSection) {
                 setActiveIndex(3);
             }
 
             if (projectSection) {
-                setIsPastProject(scrollPosition > projectSection.offsetTop);
+                setIsPastProject(scrollPosition > projectSectionTop);
             }
         };
 

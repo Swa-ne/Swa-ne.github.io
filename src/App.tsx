@@ -13,7 +13,7 @@ function App() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const headerSection = document.getElementById('header');
+            // const headerSection = document.getElementById('header');
             const aboutSection = document.getElementById('about');
             const projectSection = document.getElementById('project');
             const contactSection = document.getElementById('contact');

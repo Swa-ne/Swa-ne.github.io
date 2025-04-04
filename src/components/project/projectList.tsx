@@ -14,7 +14,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projectTitle, projectImg, pro
             <div className='flip-card-inner'>
                 <div className='flip-card-front'>
                     <div className='overflow-hidden h-4/6 rounded-2xl'>
-                        <img src={projectImg} alt={projectTitle} />
+                        <img src={projectImg} alt={projectTitle} className='h-full' />
                     </div>
 
                     <div className='w-11/12 mx-auto h-1/6 project-details'>
@@ -28,10 +28,10 @@ const ProjectList: React.FC<ProjectListProps> = ({ projectTitle, projectImg, pro
                         <label className='leading-ziltch font-normal text-xs'>{projectTech}</label>
                     </span>
                     <div className='w-full flex justify-around'>
-                        <a href={projectRepo} className='w-2/5 hover:opacity-40'>
+                        <a href={projectRepo} className='w-1/12 hover:opacity-40'>
                             <img src={ShowCode} />
                         </a>
-                        <a href={projectLink} className='w-2/5 hover:opacity-40'>
+                        <a href={projectLink} className='w-1/12 hover:opacity-40'>
                             <img src={ShowWebsite} />
                         </a>
                     </div>

@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({ pastProject }) => {
                     <label className='text-accent-color'>Hello,</label> I'm
                 </span>
                 <h1 className='w-full text-2xl/10 font-black ml:text-5xl/10 md:text-6xl lg:text-7xl xl:text-8xl title-name-header'>
-                    <ReactTyped strings={['Web Developer', 'Stephen Bautista']} typeSpeed={100} backSpeed={30} />
+                    <ReactTyped strings={['Software Engineer', 'Stephen Bautista']} typeSpeed={100} backSpeed={30} />
                 </h1>
                 <p className='text-xs lg:text-sm xl:text-base text-justify w-11/12'>An ambitious problem solver with a passion for web development, and who would like to collaborate with you and on diverse web development ideas.</p>
                 <div className='w-2/3 h-1/2 header-button-holder mx-auto flex flex-col justify-around md:h-auto md:flex-row md:w-full xl:w-1/2'>

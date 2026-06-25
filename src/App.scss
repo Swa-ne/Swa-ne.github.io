@@ -1268,6 +1268,35 @@
     background: var(--surface);
 }
 
+.chat-input-stack {
+    display: grid;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.chat-form-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+    padding: 0 0.16rem;
+    color: var(--text-secondary);
+    font-size: 0.68rem;
+    line-height: 1.35;
+}
+
+.chat-form-meta span:first-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.chat-notice {
+    color: var(--primary);
+    font-weight: 700;
+}
+
 .sr-only {
     position: absolute;
     width: 1px;

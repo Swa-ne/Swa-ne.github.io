@@ -1,4 +1,4 @@
-import { type FormEvent, type KeyboardEvent, type ReactNode, useState } from 'react';
+import { type FormEvent, type KeyboardEvent, type ReactNode, useRef, useState } from 'react';
 import type { ChatMessage } from '../../types/portfolio';
 import { makeMessageId, requestPortfolioGuideReply } from '../../utils/portfolioGuide';
 import { ChatAvatarIcon, ChatHeadIcon, SendIcon } from './shared/PortfolioIcons';
@@ -7,6 +7,11 @@ interface PortfolioGuideProps {
     profileName: string;
     chatStarters: string[];
 }
+
+const MAX_QUESTION_LENGTH = 1000;
+const MAX_THREAD_MESSAGES = 24;
+const MESSAGE_COOLDOWN_MS = 3500;
+const DUPLICATE_WINDOW_MS = 20000;
 
 function createWelcomeMessage(profileName: string): ChatMessage {
     return {
@@ -80,41 +85,73 @@ function renderMessageContent(content: string): ReactNode {
     return <div className='chat-message-content'>{contentBlocks}</div>;
 }
 
+function trimThreadMessages(messages: ChatMessage[]) {
+    if (messages.length <= MAX_THREAD_MESSAGES) {
+        return messages;
+    }
+
+    return [messages[0], ...messages.slice(-(MAX_THREAD_MESSAGES - 1))];
+}
+
 export function PortfolioGuide({ profileName, chatStarters }: PortfolioGuideProps) {
     const [question, setQuestion] = useState('');
+    const [chatNotice, setChatNotice] = useState('');
     const [isReplying, setIsReplying] = useState(false);
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [messages, setMessages] = useState<ChatMessage[]>(() => [createWelcomeMessage(profileName)]);
+    const lastSubmissionRef = useRef<{ question: string; timestamp: number }>({ question: '', timestamp: 0 });
 
     const submitQuestion = async (value: string) => {
         const trimmedValue = value.trim();
+        const now = Date.now();
 
         if (!trimmedValue || isReplying) {
             return;
         }
 
-        setMessages((currentMessages) => [
-            ...currentMessages,
-            {
-                id: makeMessageId(),
-                role: 'user',
-                content: trimmedValue,
-            },
-        ]);
+        if (trimmedValue.length > MAX_QUESTION_LENGTH) {
+            setChatNotice(`Please keep your message under ${MAX_QUESTION_LENGTH} characters.`);
+            return;
+        }
+
+        if (now - lastSubmissionRef.current.timestamp < MESSAGE_COOLDOWN_MS) {
+            setChatNotice('Please wait a few seconds before sending another message.');
+            return;
+        }
+
+        if (trimmedValue.toLowerCase() === lastSubmissionRef.current.question.toLowerCase() && now - lastSubmissionRef.current.timestamp < DUPLICATE_WINDOW_MS) {
+            setChatNotice('That message was just sent. Try asking it a different way.');
+            return;
+        }
+
+        lastSubmissionRef.current = { question: trimmedValue, timestamp: now };
+        setChatNotice('');
+        setMessages((currentMessages) =>
+            trimThreadMessages([
+                ...currentMessages,
+                {
+                    id: makeMessageId(),
+                    role: 'user',
+                    content: trimmedValue,
+                },
+            ]),
+        );
         setQuestion('');
         setIsReplying(true);
         setIsChatOpen(true);
 
         const reply = await requestPortfolioGuideReply(trimmedValue);
 
-        setMessages((currentMessages) => [
-            ...currentMessages,
-            {
-                id: makeMessageId(),
-                role: 'assistant',
-                content: reply,
-            },
-        ]);
+        setMessages((currentMessages) =>
+            trimThreadMessages([
+                ...currentMessages,
+                {
+                    id: makeMessageId(),
+                    role: 'assistant',
+                    content: reply,
+                },
+            ]),
+        );
         setIsReplying(false);
     };
 
@@ -180,8 +217,16 @@ export function PortfolioGuide({ profileName, chatStarters }: PortfolioGuideProp
                         <label htmlFor='portfolio-question' className='sr-only'>
                             Ask a question
                         </label>
-                        <textarea id='portfolio-question' value={question} onChange={(event) => setQuestion(event.target.value)} onKeyDown={handleQuestionKeyDown} rows={1} placeholder='Message SwaneAI...' />
-                        <button type='submit' className='send-button' disabled={isReplying} aria-label={isReplying ? 'Waiting for reply' : 'Send message'}>
+                        <div className='chat-input-stack'>
+                            <textarea id='portfolio-question' value={question} onChange={(event) => setQuestion(event.target.value)} onKeyDown={handleQuestionKeyDown} rows={1} maxLength={MAX_QUESTION_LENGTH} placeholder='Message SwaneAI...' />
+                            <div className='chat-form-meta'>
+                                {chatNotice ? <span className='chat-notice'>{chatNotice}</span> : <span>Ask about Stephen's public career profile.</span>}
+                                <span>
+                                    {question.length}/{MAX_QUESTION_LENGTH}
+                                </span>
+                            </div>
+                        </div>
+                        <button type='submit' className='send-button' disabled={isReplying || question.trim().length === 0} aria-label={isReplying ? 'Waiting for reply' : 'Send message'}>
                             <SendIcon />
                         </button>
                     </form>

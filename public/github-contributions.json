@@ -1,6 +1,6 @@
 {
   "username": "Swa-ne",
-  "fetchedAt": "2026-08-16T18:52:22.861Z",
+  "fetchedAt": "2026-08-17T19:05:29.852Z",
   "months": [
     "Feb",
     "Mar",
@@ -13,7 +13,7 @@
   "weeks": [
     [
       0,
-      4,
+      0,
       0,
       2,
       0,
@@ -25,7 +25,7 @@
       0,
       1,
       0,
-      2,
+      3,
       0,
       0
     ],
@@ -54,7 +54,7 @@
       1,
       0,
       0,
-      3
+      4
     ],
     [
       2,
@@ -255,9 +255,9 @@
       0
     ]
   ],
-  "totalContributions": 77,
+  "totalContributions": 71,
   "stats": {
-    "activeDays": 26,
+    "activeDays": 25,
     "activeWeeks": 14,
     "currentStreak": 0,
     "longestStreak": 4
